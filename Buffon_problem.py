@@ -2,7 +2,7 @@ from tkinter import Tk, Canvas
 from random import randint
 from math import sin, cos, pi
 
-# https://habr.com/ru/post/172827/ - сайт, на котором брал инфу
+# https://habr.com/ru/post/172827/ - сайт, на котором брал информацию
 
 amount_needles = 10
 
@@ -26,7 +26,7 @@ CHART_OPTIONS = {
     'tags': ('for clean',)
 }
 
-chart = None  # список для сохранения дескрипторов диграммы
+chart = None  # список для сохранения дескрипторов диаграммы
 chart_factor = 1
 stop_process = None  # глобальная переменная, которая в последствии станет экземпляром класса
 
@@ -57,7 +57,7 @@ def draw_lines(distance_bet_lines=NEEDLES_OPTIONS['length']):
 
 def draw_needles():
     """
-    "Разбрасывает" иголки по полотну. Количество просаемых иголок зависит от величины
+    "Разбрасывает" иголки по полотну. Количество бросаемых иголок зависит от величины
     amount_needles (7 строка кода)
     """
     global needles_ids
@@ -79,7 +79,7 @@ def draw_needles():
 
 def paint_needles():
     """
-    Перекрашывает иголки, которые пересклись с линиями
+    Перекрашивает иголки, которые пересеклись с линиями
     """
     global overlapped_needles
 
@@ -96,7 +96,7 @@ def paint_needles():
 def draw_chart(coordinates):
     """
     Отрисовывает точечную диаграмму.
-    По вертикальной оси распологается отношение кол-ва иголок,
+    По вертикальной оси располагается отношение кол-ва иголок,
     попавших на нити, к общему кол-ву брошенных иголок.
     По горизонтальной число иголок
     Args:
@@ -194,7 +194,7 @@ def process():
     draw_needles()
     paint_needles()
     create_text(drawed_needles, len(overlapped_needles))
-    # для того, чтобы уменшить шаг по горизонтали на диаграмме, нужно разделить
+    # для того, чтобы уменьшить шаг по горизонтали на диаграмме, нужно разделить
     # len(needles_ids) на какое-либо число (в строке ниже):
     draw_chart((drawed_needles // 1, (2 / (len(overlapped_needles) / drawed_needles)) * 80))
 
